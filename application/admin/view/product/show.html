@@ -1,0 +1,25 @@
+{extend name='base'}
+{block name='body'}
+<div class="x-body">
+   
+    <div class="pd-20">
+      <table  class="layui-table" lay-skin="line">
+        <tbody>
+          <tr>
+            <th width="100">标题:</th>
+            <td>{$list.name}</td>
+          </tr>
+          <tr>
+            <th>链接：</th>
+            <td>{$list.link}</td>
+          </tr>
+         
+          <tr>
+            <th>内容：</th>
+            <td><img src="__STATIC__/admin/uploads/artical/{$list.image}" alt="" width="200"> {$list->getData('content')}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+</div>
+{/block}

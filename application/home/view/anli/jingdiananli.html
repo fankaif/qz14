@@ -1,0 +1,164 @@
+﻿<!doctype html>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <title>关于我们</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" type="text/css" href="__STATIC__/home/css/base_7.css" />
+    <link rel="stylesheet" type="text/css" href="__STATIC__/home/css/indexbanner_7.css" />
+    </head>
+    <body >
+<!-- header --> 
+<div class="header" > <a href="/"><img class="headerLogo" src="__STATIC__/admin/uploads/artical/logo_7.png" /></a> 
+  <!-- list -->
+  
+  <!-- list over -->
+  <ul class="nav">
+    <div class="navTop"></div>
+    <li class="child"> <a href="/home/index/index">
+      <p class="title">首页</p>
+      </a> </li>
+    
+      {volist name='nav' id='vo'} 
+      <li class="child">
+        <a href="/home/{$vo.link}/index">
+          <p class="title">{$vo.name}</p>
+        </a>
+        <ul class="childContent">
+          {volist name='vo.sub' id='v'}
+          <a href="/home/index/{$v.link}"><li class="childContentLi">{$v.name}</li></a>  
+          {/volist}
+        </ul>
+        <img class="wapNavPointer" src="__STATIC__/admin/uploads/artical/wapnavpointer.jpg" /> 
+      </li>
+      {/volist}
+        
+    <li class="child navChildSearch" style="line-height:px;"> <img   style="margin-top: 53px;" class="seachIcon" src="__STATIC__/admin/uploads/artical/seachicon_7.png" /> </li>
+  </ul>
+  <!-- searchContent -->
+  <div class="searchContent">
+    <form  name="formsearch" action="/plus/search.php">
+      <div class="seach">
+        <input type="hidden" name="kwtype" value="0" />
+        <input type="text" name="q" class="seachText" placeholder="搜索" />
+        <button type="submit" class="search-submit">
+        <div id="btn_2" class="btn"><img src="__STATIC__/admin/uploads/artical/footsearch_7.png" /></div>
+        </button>
+      </div>
+    </form>
+  </div>
+  <!-- searchContent over --> 
+  <!-- wap --> 
+  <img class="wapNavBtn" src="__STATIC__/admin/uploads/artical/wapnavbtn_7.png" />
+  <div class="wapLanguage"> <a>
+    <div class="language on cn">CN</div>
+    </a> <a href="/">
+    <div class="language">EN</div>
+    </a> </div>
+  <!-- wap over --> 
+</div>
+ 
+<!-- header over -->
+</div>
+<!-- wap over -->
+</div>
+<!-- header over -->
+<link rel="stylesheet" type="text/css" href="__STATIC__/home/css/casestudies_1.css" />
+<!-- crumbs -->
+<div class="crumbs">
+      <div class="container">
+    <p class="title">经典案例</p>
+    <div class="childs"> <a href='http://www.aaa.com/'>主页</a> > <a href='/a/guanyuwomen/'>关于我们</a> > <a href='/a/guanyuwomen/jingdiananli/'>经典案例</a> >  </div>
+  </div>
+    </div>
+<!-- crumbs over --> 
+<!-- main -->
+<div class="main">
+      <div class="container">
+    <div class="maxTitle"> <span class="title">经典项目赏析</span>
+          <div class="sub"></div>
+        </div>
+    <p class="caseInfo">魔客吧的工程项目遍布全球各地。产品的模块化特性使得项目设计师可以随心所欲地设计最佳解决方案，以满足最高规格的要求。</p>
+    
+    <!-- mainContent -->
+    <div class="mainContent"> 
+    {volist name='case' id='vo'}
+      <div class="child leftChild" id="case11">
+        <div class="childImg"><img src="__STATIC__/admin/uploads/artical/{$vo.photo}" /></div>
+        <div class="childInfo"> <a href="/a/guanyuwomen/jingdiananli/14.html">
+          <p class="childTitle2">{$vo.title}</p>
+          </a>
+              <div class="childInfo2">{$vo.content}</div>
+        </div>
+      </div>
+    {/volist}
+    </div>
+    <!-- mainContent over -->
+    <div class="top"><img src="__STATIC__/admin/uploads/artical/top_3.png" /></div>
+  </div>
+    </div>
+<!-- main over --> 
+<!-- footer --> 
+<div class="footer">
+  <div class="head">
+    <div class="container">
+      <div class="left">
+        <p class="title">搜索本站</p>
+        <form  name="formsearch" action="/plus/search.php">
+          <div class="seach">
+            <input type="hidden" name="kwtype" value="0" />
+            <input type="text" name="q" class="seachText" placeholder="搜索" />
+            <button type="submit" class="search-submit">
+            <div id="btn" class="btn"> <img  src="__STATIC__/admin/uploads/artical/footsearch_7.png" /> </div>
+            </button>
+          </div>
+        </form>
+      </div>
+      <div class="right">
+        <p class="title">社交媒体</p>
+        <div class="content"> <a href="http://weibo.com/"><img src="__STATIC__/admin/uploads/artical/icon1_7.png" /></a> <a href="#"><img src="__STATIC__/admin/uploads/artical/icon2_7.png" /></a> <a href="#"><img src="__STATIC__/admin/uploads/artical/icon3_7.png" /></a> <a href="#"><img src="__STATIC__/admin/uploads/artical/icon4_7.png" /></a> <a href="#"><img src="__STATIC__/admin/uploads/artical/icon5_7.png" /></a> <a href="#"><img src="__STATIC__/admin/uploads/artical/icon6_7.png" /></a> <a href="#"><img src="__STATIC__/admin/uploads/artical/icon7_7.png" /></a> </div>
+      </div>
+    </div>
+  </div>
+  <div class="foot">
+    <p>Copyright &copy; 2002-2011  | 华北互联 |<a href="http://www.miitbeian.gov.cn/"> 粤ICP备88888888号</a> </p>
+
+  </div>
+</div> 
+<!-- footer over --> 
+<!-- js --> 
+<script src="__STATIC__/home/js/jquery-1.11.0.min_7.js"></script> 
+<script src="__STATIC__/home/js/base_7.js"></script> 
+<script src="__STATIC__/home/js/index_7.js"></script> 
+<script src="__STATIC__/home/js/indexnews_7.js"></script> 
+<script src="__STATIC__/home/js/indexbanner_7.js"></script> 
+
+<!-- js over -->
+</body>
+    </html>
+<script>
+	$(function(){
+		$("#btn").click(function(){
+			$("#post_1").submit();
+		});
+
+	
+		$("#btn_2").click(function(){
+			$("#post_2").submit();
+		});
+		$("#btn_3").click(function(){
+			$("#post_3").submit();
+		});
+	});
+
+
+
+</script>
+<script src="__STATIC__/home/js/about_2.js"></script>
+<script src="__STATIC__/home/js/casestudies_1.js"></script>
+<script>
+	</script>

@@ -1,0 +1,142 @@
+{extend name='base'}
+{block name='tcss'}
+<link rel="stylesheet" href="/static/admin/lib/bootstrap/css/bootstrap.min.css" >
+{/block}
+{block name='body'}
+        <div class="x-body">
+            <form class="layui-form layui-form-pane" method="post" enctype="multipart/form-data" action="/admin/product/save" >
+                <div class="layui-form-item">
+                    <label for="link" class="layui-form-label">
+                        <span class="x-red">*</span>产品图
+                    </label>
+                    <div class="layui-input-inline">
+                      <div class="site-demo-upbar">
+                        <input type="file" name="file" class="layui-upload-file" id="test">
+                      </div>
+                    </div>
+                </div>
+                <input type="hidden" name="image" value="" id="image">
+                <div class="layui-form-item">
+                    <label  class="layui-form-label">缩略图
+                    </label>
+                    <img id="LAY_demo_upload" width="400" src="">
+                </div>
+                <div class="layui-form-item">
+                    <label  class="layui-form-label">
+                    </label>
+                    （由于服务器资源有限，所以此处每次给你返回的是同一张图片)
+                </div>
+                
+                <div class="layui-form-item">
+                    <label for="link" class="layui-form-label">
+                        <span class="x-red">*</span>产品名称
+                    </label>
+                    <div class="layui-input-inline">
+                        <input type="text" id="link" name="name" required="" lay-verify="required"
+                        autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label for="link" class="layui-form-label">
+                        <span class="x-red">*</span>链接
+                    </label>
+                    <div class="layui-input-inline">
+                        <input type="text" id="link" name="link" required="" lay-verify="required"
+                        autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+
+                <div class="layui-form-item">
+                    <label for="desc" class="layui-form-label">
+                        <span class="x-red">*</span>描述
+                    </label>
+                    <div class="layui-input-inline">
+                        <input type="text" id="desc" name="desc" required="" lay-verify="required"
+                        autocomplete="off" class="layui-input">
+                    </div>
+                    <div class="layui-form-mid layui-word-aux">
+                        <span class="x-red">*</span>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label for="L_repass" class="layui-form-label">
+                    </label>
+                    <input type="submit" value="添加" class="layui-btn">
+                </div>
+            </form>
+        </div>
+        <div id="info" style="display: none;">{$info}</div>
+        
+{/block}
+{block name='ojs'}
+        <script src="./lib/layui/layui.js" charset="utf-8"></script>
+        <script src="./js/x-layui.js" charset="utf-8"></script>
+        <script>
+         layui.use(['form','layer','layedit','upload'], function(){
+              $ = layui.jquery;
+              var form = layui.form()
+              ,layer = layui.layer
+              ,layedit = layui.layedit;
+              
+              var inp =document.getElementsByTagName("input");
+                
+              //编辑器图片上传
+              // layedit.set({
+              //   uploadImage: {
+              //     url: "/admin/artical/upload" //接口url
+              //     ,type: 'post' //默认post
+              //   }
+              // })
+        
+            //创建一个编辑器
+            editIndex = layedit.build('L_content',{tool: [
+              'strong' //加粗
+              ,'italic' //斜体
+              ,'underline' //下划线
+              ,'del' //删除线
+              
+              ,'|' //分割线
+              
+              ,'left' //左对齐
+              ,'center' //居中对齐
+              ,'right' //右对齐
+              ,'link' //超链接
+              ,'unlink' //清除链接
+              ,'face' //表情
+            ]});
+            var inp = document.getElementsByName("file");
+            //图片上传接口
+            layui.upload({
+              url: '/admin/artical/upload' //上传接口
+              ,success: function(res){ //上传成功后的回调
+                if (res.code==0) {
+                  $('#LAY_demo_upload').attr('src',res.data.src);
+                  $('#image').attr('value',res.data.title);
+
+                }else{
+                  layer.alert(res.msg, {
+                    title: '提示信息',
+                    closeBth:0,
+                  });
+                }
+              }
+            });
+
+            //弹出错误信息
+            var info = $('#info').text();
+            if (info!='') {
+                layer.alert(info, {
+                  title: '提示信息',
+
+                },function(){
+                    //获得frame索引
+                    var index = parent.layer.getFrameIndex(window.name);
+                    //关闭当前frame
+                    parent.layer.close(index); 
+                    
+                })
+            } 
+              
+            });
+        </script>
+{/block}

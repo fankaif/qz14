@@ -1,0 +1,28 @@
+{extend name='base'}
+{block name='body'}
+<div class="x-body">
+   
+    <div class="pd-20">
+      <table  class="layui-table" lay-skin="line">
+        <tbody>
+          <tr>
+            <th width="100">标题:</th>
+            <td>{$list.title}</td>
+          </tr>
+          <tr>
+            <th>类别：</th>
+            <td>{$list.tid}</td>
+          </tr>
+            <tr>
+            <th>图片：</th>
+                <td><img src="{$list.image}" alt="" style="width:100px"></td>
+          </tr>
+          <tr>
+            <th>内容：</th>
+            <td>{$list->getData('content')}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+</div>
+{/block}

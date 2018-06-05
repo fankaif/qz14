@@ -1,0 +1,248 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<title>关于我们</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link rel="stylesheet" type="text/css" href="__STATIC__/home/css/base.css" />
+<link rel="stylesheet" type="text/css" href="__STATIC__/home/css/indexbanner.css" />
+</head>
+<body >
+<!-- header --> 
+<div class="header" > <a href="/"><img class="headerLogo" src="__STATIC__/admin/uploads/artical/logo.png" /></a> 
+  
+  <ul class="nav">
+    <div class="navTop"></div>
+    <li class="child on"> 
+      <a href="/home/index/index">
+        <p class="title">首页</p>
+      </a> 
+    </li>
+
+    {volist name='nav' id='vo'} 
+    <li class="child">
+      <a href="/home/{$vo.link}/index">
+        <p class="title">{$vo.name}</p>
+      </a>
+      <ul class="childContent">
+        {volist name='vo.sub' id='v'}
+        <a href="/home/index/{$v.link}"><li class="childContentLi">{$v.name}</li></a>  
+        {/volist}
+      </ul>
+      <img class="wapNavPointer" src="__STATIC__/admin/uploads/artical/wapnavpointer.jpg" /> 
+    </li>
+    {/volist}
+
+    <li class="child navChildSearch" style="line-height:px;"> <img   style="margin-top: 53px;" class="seachIcon" src="__STATIC__/admin/uploads/artical/seachicon.png" /> </li>
+  </ul>
+  <!-- searchContent -->
+  <div class="searchContent">
+    <form  name="formsearch" action="/plus/search.php">
+      <div class="seach">
+        <input type="hidden" name="kwtype" value="0" />
+        <input type="text" name="q" class="seachText" placeholder="搜索" />
+        <button type="submit" class="search-submit">
+        <div id="btn_2" class="btn"><img src="__STATIC__/admin/uploads/artical/footsearch.png" /></div>
+        </button>
+      </div>
+    </form>
+  </div>
+  <!-- searchContent over --> 
+  <!-- wap --> 
+  <img class="wapNavBtn" src="__STATIC__/admin/uploads/artical/wapnavbtn.png" />
+  <div class="wapLanguage"> <a>
+    <div class="language on cn">CN</div>
+    </a> <a href="/">
+    <div class="language">EN</div>
+    </a> </div>
+  <!-- wap over --> 
+</div>
+ 
+<!-- header over -->
+</div>
+<!-- wap over -->
+</div>
+<!-- header over -->
+<link rel="stylesheet" type="text/css" href="__STATIC__/home/css/about.css" />
+<!-- crumbs -->
+<div class="crumbs">
+  <div class="container">
+    <p class="title">关于我们</p>
+    <div class="childs"> <a href="/">首页</a><span>/</span><a>关于我们</a> </div>
+  </div>
+</div>
+<!-- crumbs over --> 
+<!-- main -->
+<div class="main">
+  <div class="container">
+  {volist name='aboutus' id='vo'}
+  <div class="maxTitle"> <span class="title">{$vo.title}</span>
+      <div class="sub"></div>
+  </div>
+  <div class="head">
+  	<div class="left">
+  		<img src="__STATIC__/admin/uploads/artical/{$vo.image}" style="width: 590px; height: 250px;" />
+    </div>
+  	<div class="right">
+  		<p>{$vo.content}</p>
+  	</div>
+  </div>
+  {/volist}
+<br />
+
+    <div class="content"> 
+      <!-- left -->
+      <div class="left">
+        {volist name='aboutus2' id='vo'}
+        <div class="contentTitle"> 
+          <span class="title">{$vo.title}</span>
+          <div class="sub"></div>
+        </div>
+        
+          <dl>{$vo.content1}</dl>
+          
+        
+        <p class="info">{$vo.content}</p>
+        {/volist}
+      </div>
+      <!-- left over --> 
+      <!-- right -->
+      <div class="right">
+        <div class="contentTitle"> <span class="title">提交简历</span>
+          <div class="sub"></div>
+        </div>
+        <form action="/home/aboutus/save" enctype="multipart/form-data" method="post">
+          <input type="hidden" name="action" value="post" />
+          <input type="hidden" name="diyid" value="1" />
+          <input type="hidden" name="do" value="2" />
+
+          <p class="lineTitle">您的名字(必填)</p>
+          <div class="line">
+            <input type="text" name="name" class="inputText" />
+          </div>
+
+          <p class="lineTitle">您的手机(必填)</p>
+          <div class="line">
+            <input type="text" name="phone" class="inputText" />
+          </div>
+
+          <p class="lineTitle">您的邮箱(必填)</p>
+          <div class="line">
+            <input type="text" name="email" class="inputText" />
+          </div>
+
+          <p class="lineTitle">您的住址(必填)</p>
+          <div class="line">
+            <input type="text" name="addr" class="inputText" />
+          </div>
+          
+          <p class="lineTitle">应聘职位</p>
+          <div class="line">
+            <input type="text" name="job" class="inputText" />
+          </div>
+
+          <p class="lineTitle">个人工作经历</p>
+          <div class="line">
+            <textarea name="jingli" class="textArea"></textarea>
+          </div>
+
+          
+
+          <div class="line">
+            <input type="submit" class="inputSub" value="提交" />
+          </div>
+
+        </form>
+      </div>
+      <!-- right over --> 
+    </div>
+    <script type="text/javascript" language="javascript">
+	//验证码 function changeAuthCode(){var num =newDate().getTime();varrand= Math.round(Math.random()*10000);    num = num +rand;$('#ver_code').css('visibility','visible');if($("#vdimgck")[0]){$("#vdimgck")[0].src ="../include/vdimgck.php?tag="+ num;}returnfalse;}</script> 
+    <!-- customer -->
+    
+    <!-- customerLogo -->
+    <div class="customerLogo">
+      <p class="title">目前正在使用我们产品的客户：</p>
+      <div class="customerLogoContent">
+        <div class="contents"> <a href="#">
+          <div class="child"><img src="__STATIC__/admin/uploads/artical/5593835d95527.png" /></div>
+          </a><a href="#">
+          <div class="child"><img src="__STATIC__/admin/uploads/artical/559384164d623.png" /></div>
+          </a><a href="#">
+          <div class="child"><img src="__STATIC__/admin/uploads/artical/559386716b58d.png" /></div>
+          </a><a href="#">
+          <div class="child"><img src="__STATIC__/admin/uploads/artical/559386ee876eb.png" /></div>
+          </a><a href="#">
+          <div class="child"><img src="__STATIC__/admin/uploads/artical/559387763b60f.png" /></div>
+          </a> </div>
+      </div>
+      <img class="logoBtn leftBtn" onclick="customerLogoBtnClick('-')" src="__STATIC__/admin/uploads/artical/logoleft.png" /> <img class="logoBtn rightBtn" onclick="customerLogoBtnClick('+')" src="__STATIC__/admin/uploads/artical/logoright.png" /> </div>
+    <!-- customerLogo over --> 
+  </div>
+</div>
+<!-- main over --> 
+<!-- footer --> 
+<div class="footer">
+  <div class="head">
+    <div class="container">
+      <div class="left">
+        <p class="title">搜索本站</p>
+        <form  name="formsearch" action="/plus/search.php">
+          <div class="seach">
+            <input type="hidden" name="kwtype" value="0" />
+            <input type="text" name="q" class="seachText" placeholder="搜索" />
+            <button type="submit" class="search-submit">
+            <div id="btn" class="btn"> <img  src="__STATIC__/admin/uploads/artical/footsearch.png" /> </div>
+            </button>
+          </div>
+        </form>
+      </div>
+      <div class="right">
+        <p class="title">社交媒体</p>
+        <div class="content"> <a href="http://weibo.com/"><img src="__STATIC__/admin/uploads/artical/icon1.png" /></a> <a href="#"><img src="__STATIC__/admin/uploads/artical/icon2.png" /></a> <a href="#"><img src="__STATIC__/admin/uploads/artical/icon3.png" /></a> <a href="#"><img src="__STATIC__/admin/uploads/artical/icon4.png" /></a> <a href="#"><img src="__STATIC__/admin/uploads/artical/icon5.png" /></a> <a href="#"><img src="__STATIC__/admin/uploads/artical/icon6.png" /></a> <a href="#"><img src="__STATIC__/admin/uploads/artical/icon7.png" /></a> </div>
+      </div>
+    </div>
+  </div>
+  <div class="foot">
+    <p>Copyright &copy; 2002-2011  | 华北互联 |<a href="http://www.miitbeian.gov.cn/"> 粤ICP备88888888号</a> </p>
+
+  </div>
+</div> 
+<!-- footer over --> 
+<!-- js --> 
+<script src="__STATIC__/home/js/jquery-1.11.0.min.js"></script> 
+<script src="__STATIC__/home/js/base.js"></script> 
+<script src="__STATIC__/home/js/index.js"></script> 
+<script src="__STATIC__/home/js/indexnews.js"></script> 
+<script src="__STATIC__/home/js/indexbanner.js"></script> 
+
+<!-- js over -->
+</body>
+</html>
+<script>
+	$(function(){
+		$("#btn").click(function(){
+			$("#post_1").submit();
+		});
+
+	
+		$("#btn_2").click(function(){
+			$("#post_2").submit();
+		});
+		$("#btn_3").click(function(){
+			$("#post_3").submit();
+		});
+	});
+
+
+
+</script>
+<script src="__STATIC__/home/js/about.js"></script>
+<script src="__STATIC__/home/js/aboutcustomer.js"></script>
+<script src="__STATIC__/home/js/aboutcustomerlogo.js"></script>
+<script src="__STATIC__/home/js/jquery.validate.js"></script>
+<script src="__STATIC__/home/js/app.validate.js"></script>

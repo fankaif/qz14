@@ -1,0 +1,152 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<title>产品系列</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link rel="stylesheet" type="text/css" href="__STATIC__/home/css/base.css" />
+<link rel="stylesheet" type="text/css" href="__STATIC__/home/css/indexbanner.css" />
+</head>
+<body >
+<!-- header --> 
+<div class="header" > <a href="/"><img class="headerLogo" src="__STATIC__/admin/uploads/artical/logo.png" /></a> 
+  <!-- list -->
+  
+  <!-- list over -->
+  <ul class="nav">
+    <div class="navTop"></div>
+    <li class="child on"> 
+      <a href="/home/index/index">
+        <p class="title">首页</p>
+      </a> 
+    </li>
+
+    {volist name='nav' id='vo'} 
+    <li class="child">
+      <a href="/home/{$vo.link}/index">
+        <p class="title">{$vo.name}</p>
+      </a>
+      <ul class="childContent">
+        {volist name='vo.sub' id='v'}
+        <a href="/home/index/{$v.link}"><li class="childContentLi">{$v.name}</li></a>  
+        {/volist}
+      </ul>
+      <img class="wapNavPointer" src="__STATIC__/admin/uploads/artical/wapnavpointer.jpg" /> 
+    </li>
+    {/volist}
+
+    <li class="child navChildSearch" style="line-height:px;"> <img   style="margin-top: 53px;" class="seachIcon" src="__STATIC__/admin/uploads/artical/seachicon.png" /> </li>
+  </ul>
+  <!-- searchContent -->
+  <div class="searchContent">
+    <form  name="formsearch" action="/plus/search.php">
+      <div class="seach">
+        <input type="hidden" name="kwtype" value="0" />
+        <input type="text" name="q" class="seachText" placeholder="搜索" />
+        <button type="submit" class="search-submit">
+        <div id="btn_2" class="btn"><img src="__STATIC__/admin/uploads/artical/footsearch.png" /></div>
+        </button>
+      </div>
+    </form>
+  </div>
+  <!-- searchContent over --> 
+  <!-- wap --> 
+  <img class="wapNavBtn" src="__STATIC__/admin/uploads/artical/wapnavbtn.png" />
+  <div class="wapLanguage"> <a>
+    <div class="language on cn">CN</div>
+    </a> <a href="/">
+    <div class="language">EN</div>
+    </a> </div>
+  <!-- wap over --> 
+</div>
+ 
+<!-- header over -->
+</div>
+<!-- wap over -->
+</div>
+<!-- header over -->
+<link rel="stylesheet" type="text/css" href="__STATIC__/home/css/product.css" />
+<!-- crumbs -->
+<div class="crumbs">
+  <div class="container">
+    <p class="title">产品系列</p>
+    <div class="childs"> <a href='http://www.aaa.com/'>主页</a> > <a href='/a/chanpinxilie/'>产品系列</a>  </div>
+  </div>
+</div>
+<!-- crumbs over --> 
+<!-- main -->
+<div class="main">
+  <div class="container">
+  {volist name='pro' id='vo'}
+    <a href="/home/product/{$vo.link}">
+    <div class="child">
+      <div class="childImg"><img src="__STATIC__/admin/uploads/artical/{$vo.image}" /></div>
+      <div class="childTitle">
+        <p class="title">{$vo.name}</p>
+      </div>
+    </div>
+    </a>
+  {/volist}
+  </div>
+</div>
+<!-- main over --> 
+<!-- footer --> 
+<div class="footer">
+  <div class="head">
+    <div class="container">
+      <div class="left">
+        <p class="title">搜索本站</p>
+        <form  name="formsearch" action="/plus/search.php">
+          <div class="seach">
+            <input type="hidden" name="kwtype" value="0" />
+            <input type="text" name="q" class="seachText" placeholder="搜索" />
+            <button type="submit" class="search-submit">
+            <div id="btn" class="btn"> <img  src="__STATIC__/admin/uploads/artical/footsearch.png" /> </div>
+            </button>
+          </div>
+        </form>
+      </div>
+      <div class="right">
+        <p class="title">社交媒体</p>
+        <div class="content"> <a href="http://weibo.com/"><img src="__STATIC__/admin/uploads/artical/icon1.png" /></a> <a href="#"><img src="__STATIC__/admin/uploads/artical/icon2.png" /></a> <a href="#"><img src="__STATIC__/admin/uploads/artical/icon3.png" /></a> <a href="#"><img src="__STATIC__/admin/uploads/artical/icon4.png" /></a> <a href="#"><img src="__STATIC__/admin/uploads/artical/icon5.png" /></a> <a href="#"><img src="__STATIC__/admin/uploads/artical/icon6.png" /></a> <a href="#"><img src="__STATIC__/admin/uploads/artical/icon7.png" /></a> </div>
+      </div>
+    </div>
+  </div>
+  <div class="foot">
+    <p>Copyright &copy; 2002-2011  | 华北互联 |<a href="http://www.miitbeian.gov.cn/"> 粤ICP备88888888号</a> </p>
+
+  </div>
+</div> 
+<!-- footer over --> 
+<!-- js --> 
+<script src="__STATIC__/home/js/jquery-1.11.0.min.js"></script> 
+<script src="__STATIC__/home/js/base.js"></script> 
+<script src="__STATIC__/home/js/index.js"></script> 
+<script src="__STATIC__/home/js/indexnews.js"></script> 
+<script src="__STATIC__/home/js/indexbanner.js"></script> 
+
+<!-- js over -->
+</body>
+</html>
+<script>
+	$(function(){
+		$("#btn").click(function(){
+			$("#post_1").submit();
+		});
+
+	
+		$("#btn_2").click(function(){
+			$("#post_2").submit();
+		});
+		$("#btn_3").click(function(){
+			$("#post_3").submit();
+		});
+	});
+
+
+
+</script>
